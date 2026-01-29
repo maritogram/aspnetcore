@@ -1,1 +1,7 @@
 #nullable enable
+Microsoft.AspNetCore.Mvc.TagHelpers.DisplayNameForTagHelper
+~Microsoft.AspNetCore.Mvc.TagHelpers.DisplayNameForTagHelper.DisplayNameForTagHelper(Microsoft.AspNetCore.Mvc.ViewFeatures.IHtmlGenerator htmlGenerator) -> void
+~Microsoft.AspNetCore.Mvc.TagHelpers.DisplayNameForTagHelper.For.get -> Microsoft.AspNetCore.Mvc.ViewFeatures.ModelExpression
+~Microsoft.AspNetCore.Mvc.TagHelpers.DisplayNameForTagHelper.For.set -> void
+~Microsoft.AspNetCore.Mvc.TagHelpers.DisplayNameForTagHelper.HtmlGenerator.get -> Microsoft.AspNetCore.Mvc.ViewFeatures.IHtmlGenerator
+~override Microsoft.AspNetCore.Mvc.TagHelpers.DisplayNameForTagHelper.Process(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext context, Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput output) -> void
