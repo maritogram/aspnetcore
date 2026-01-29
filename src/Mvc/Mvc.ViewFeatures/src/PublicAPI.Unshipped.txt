@@ -1,1 +1,2 @@
 #nullable enable
+~Microsoft.AspNetCore.Mvc.ViewFeatures.IHtmlGenerator.GenerateDisplayName(Microsoft.AspNetCore.Mvc.ViewFeatures.ModelExplorer modelExplorer, string expression) -> string

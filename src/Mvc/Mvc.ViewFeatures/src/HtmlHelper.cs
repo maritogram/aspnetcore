@@ -768,27 +768,7 @@ public class HtmlHelper : IHtmlHelper, IViewContextAware
     /// <returns>The display name.</returns>
     protected virtual string GenerateDisplayName(ModelExplorer modelExplorer, string expression)
     {
-        ArgumentNullException.ThrowIfNull(modelExplorer);
-
-        // We don't call ModelMetadata.GetDisplayName here because
-        // we want to fall back to the field name rather than the ModelType.
-        // This is similar to how the GenerateLabel get the text of a label.
-        var resolvedDisplayName = modelExplorer.Metadata.DisplayName ?? modelExplorer.Metadata.PropertyName;
-        if (resolvedDisplayName == null && expression != null)
-        {
-            var index = expression.LastIndexOf('.');
-            if (index == -1)
-            {
-                // Expression does not contain a dot separator.
-                resolvedDisplayName = expression;
-            }
-            else
-            {
-                resolvedDisplayName = expression.Substring(index + 1);
-            }
-        }
-
-        return resolvedDisplayName ?? string.Empty;
+        return _htmlGenerator.GenerateDisplayName(modelExplorer, expression);
     }
 
     /// <summary>

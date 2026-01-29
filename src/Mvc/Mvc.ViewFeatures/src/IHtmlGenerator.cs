@@ -596,4 +596,35 @@ public interface IHtmlGenerator
         ModelExplorer modelExplorer,
         string expression,
         bool allowMultiple);
+
+    /// <summary>
+    /// Generate display name.
+    /// </summary>
+    /// <param name="modelExplorer">The <see cref="ModelExplorer"/>.</param>
+    /// <param name="expression">The expression.</param>
+    /// <returns>An empty string if no display name is found; otherwise, the display name.</returns>
+    string GenerateDisplayName(ModelExplorer modelExplorer, string expression)
+    {
+        ArgumentNullException.ThrowIfNull(modelExplorer);
+
+        // We don't call ModelMetadata.GetDisplayName here because
+        // we want to fall back to the field name rather than the ModelType.
+        // This is similar to how the GenerateLabel get the text of a label.
+        var resolvedDisplayName = modelExplorer.Metadata.DisplayName ?? modelExplorer.Metadata.PropertyName;
+        if (resolvedDisplayName == null && expression != null)
+        {
+            var index = expression.LastIndexOf('.');
+            if (index == -1)
+            {
+                // Expression does not contain a dot separator.
+                resolvedDisplayName = expression;
+            }
+            else
+            {
+                resolvedDisplayName = expression.Substring(index + 1);
+            }
+        }
+
+        return resolvedDisplayName ?? string.Empty;
+    }
 }
